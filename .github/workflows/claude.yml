@@ -1,0 +1,17 @@
+name: Claude
+
+on:
+  workflow_dispatch:
+    inputs:
+      task:
+        description: 'Task description'
+        required: true
+        type: string
+
+jobs:
+  claude:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Claude task
+        run: echo "Task: ${{ github.event.inputs.task }}"
